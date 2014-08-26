@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class ActivityMain extends Activity {
@@ -16,7 +18,12 @@ public class ActivityMain extends Activity {
         setContentView(R.layout.activity_main);
         Log.d("start", "start");
         Button silence = (Button) findViewById(R.id.silenceButton);
-        
+        silence.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Silencing...", Toast.LENGTH_SHORT).show();
+            }/* Some Code */
+        });
     }
 
 
