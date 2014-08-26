@@ -1,6 +1,7 @@
 package com.example.sona.phonesilencer;
 
 import android.app.Activity;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -22,8 +23,20 @@ public class ActivityMain extends Activity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Silencing...", Toast.LENGTH_SHORT).show();
+                AudioManager audiomanage = (AudioManager)getSystemService(getApplicationContext().AUDIO_SERVICE);
+                audiomanage.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
             }/* Some Code */
         });
+        Button loud = (Button) findViewById(R.id.loud);
+        loud.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Loud-ing...", Toast.LENGTH_SHORT).show();
+                AudioManager audiomanage = (AudioManager)getSystemService(getApplicationContext().AUDIO_SERVICE);
+                audiomanage.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            }/* Some Code */
+        });
+
     }
 
 
